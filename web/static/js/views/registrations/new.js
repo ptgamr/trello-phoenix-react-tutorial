@@ -1,9 +1,9 @@
-import React, {PropTypes}   from 'react';
-import { connect }          from 'react-redux';
-import { Link }             from 'react-router';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router';
 
 import { setDocumentTitle, renderErrorsFor } from '../../utils';
-import Actions              from '../../actions/registrations';
+import Actions from '../../actions/registrations';
 
 class RegistrationsNew extends React.Component {
   componentDidMount() {
@@ -37,23 +37,25 @@ class RegistrationsNew extends React.Component {
           </header>
           <form onSubmit={::this._handleSubmit}>
             <div className="field">
-              <input ref="firstName" type="text" placeholder="First name" required={true} />
+              <input ref="firstName" type="text" placeholder="First name" required />
               {renderErrorsFor(errors, 'first_name')}
             </div>
             <div className="field">
-              <input ref="lastName" type="text" placeholder="Last name" required={true} />
+              <input ref="lastName" type="text" placeholder="Last name" required />
               {renderErrorsFor(errors, 'last_name')}
             </div>
             <div className="field">
-              <input ref="email" type="email" placeholder="Email" required={true} />
+              <input ref="email" type="email" placeholder="Email" required />
               {renderErrorsFor(errors, 'email')}
             </div>
             <div className="field">
-              <input ref="password" type="password" placeholder="Password" required={true} />
+              <input ref="password" type="password" placeholder="Password" />
               {renderErrorsFor(errors, 'password')}
             </div>
             <div className="field">
-              <input ref="passwordConfirmation" type="password" placeholder="Confirm password" required={true} />
+              <input ref="passwordConfirmation" type="password" placeholder="Confirm password"
+                required
+              />
               {renderErrorsFor(errors, 'password_confirmation')}
             </div>
             <button type="submit">Sign up</button>
