@@ -13,7 +13,7 @@ defmodule Trello.User do
     timestamps
   end
 
-  @required_fields ~w(first_name last_name email)
+  @required_fields ~w(first_name last_name email password)
   @optional_fields ~w(encrypted_password)
 
   @doc """
@@ -35,6 +35,7 @@ defmodule Trello.User do
   defp generate_encrypted_password(current_changeset) do
     case current_changeset do
       %Ecto.Changeset{valid?: true, changes: %{password: password}} ->
+        IO.puts("generating encrypted_password")
         put_change(current_changeset, :encrypted_password, Comeonin.Bcrypt.hashpwsalt(password))
       _ ->
         current_changeset
